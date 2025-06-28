@@ -114,6 +114,13 @@ async findallAuthors(): Promise<UserEntity[]> {
     
 }
 
+async findAllUsers(): Promise<UserEntity[]> {
+  
+     const users=await UserModel.find({role:"USER"})
+    return users.map(ReturnUser)
+}
+
+
 async deleteaddressbyid(userId: string, addressId: string): Promise<boolean> {
    const user = await UserModel.findById(userId);
   if (!user || !user.Address) return false;

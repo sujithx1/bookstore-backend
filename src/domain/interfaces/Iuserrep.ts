@@ -8,6 +8,7 @@ export interface IUserRepository{
     findByName(name:string):Promise<UserEntity|null>
     update(id:string,userData:UserEntity):Promise<UserEntity|null>
     findAll():Promise<UserEntity[]>
+    findAllUsers():Promise<UserEntity[]>
     findIdBlock(id:string):Promise<boolean>
     findIdBlockToogle(id:string,isActive:boolean):Promise<boolean>
     findallAuthors():Promise<UserEntity[]>
