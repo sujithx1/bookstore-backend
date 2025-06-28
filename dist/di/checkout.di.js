@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.checkoutcontroller = void 0;
+const bookrepositories_1 = require("../infrastructor/repositories/bookrepositories");
+const purchaserepository_1 = require("../infrastructor/repositories/purchaserepository");
+const userrepository_1 = require("../infrastructor/repositories/userrepository");
+const checkoutcontroller_1 = require("../presentation/controller/checkout/checkoutcontroller");
+const checkoutusecase_1 = require("../usecases/checkout/checkoutusecase");
+const userrep = new userrepository_1.UserRepository();
+const bookrep = new bookrepositories_1.BookRepository();
+const checkoutrepo = new purchaserepository_1.PurchaseRepository();
+const postchekout = new checkoutusecase_1.CheckoutPostuseCase(checkoutrepo, bookrep, userrep);
+exports.checkoutcontroller = new checkoutcontroller_1.Checkoutcontrolle(postchekout);
